@@ -92,7 +92,7 @@ param_grid = {
 grid = GridSearchCV(
 pipeline,
 param_grid=param_grid,
-cv= 5,
+cv= 3,
 scoring='r2'
 )
 
