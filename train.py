@@ -16,7 +16,7 @@ from sklearn.linear_model import LinearRegression
 # 1) Load Dataset
 # --------------------------------
 
-df = pd.read_csv("C:\\Users\\chaud\\OneDrive\\Desktop\\fastapi1\\tra.csv")
+df = pd.read_csv("C:\\Users\\chaud\\OneDrive\\Desktop\\fastapi1\\trainnn.csv")
 
 
 print(df.head(9))
@@ -114,7 +114,7 @@ print("r2 score:",r2_score(y_test,y_pred))
 # 9) Save Model
 # --------------------------------
 
-with open("model_LG.pkl", "wb") as f:
+with open("model.pkl", "wb") as f:
     pickle.dump(best_model, f)
 
 print("Model saved successfully ✅")

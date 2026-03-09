@@ -7,7 +7,7 @@ import pickle
 app = FastAPI()
 
 # Load model
-with open("model_LG.pkl", "rb") as f:
+with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
 templates = Jinja2Templates(directory="templates")
