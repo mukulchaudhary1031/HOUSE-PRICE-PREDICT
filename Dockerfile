@@ -9,7 +9,6 @@ COPY . .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install Jinja2
 
 # Expose FastAPI port
 EXPOSE 8000
