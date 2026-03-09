@@ -7,7 +7,7 @@ import pickle
 app = FastAPI()
 
 # Load ML model
-with open("model_iG.pkl", "rb") as f:
+with open("model_LG.pkl", "rb") as f:
     model = pickle.load(f)
 
 # HTML templates folder

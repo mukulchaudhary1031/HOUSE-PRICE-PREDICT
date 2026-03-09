@@ -118,7 +118,7 @@ print("r2 score:",r2_score(y_test,y_pred))
 # 9) Save Model
 # --------------------------------
 
-with open("model_lG.pkl", "wb") as f:
+with open("model_LG.pkl", "wb") as f:
     pickle.dump(best_model, f)
 
 print("Model saved successfully ✅")
