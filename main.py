@@ -6,14 +6,11 @@ import pickle
 
 app = FastAPI()
 
-# Load ML model
+# Load model
 with open("model_LG.pkl", "rb") as f:
     model = pickle.load(f)
 
-# HTML templates folder
 templates = Jinja2Templates(directory="templates")
-
-# CSS/Static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
@@ -23,15 +20,41 @@ def home(request: Request):
 
 
 @app.post("/predict")
-def predict(request: Request, area: float = Form(...)):
-    area_val = np.array([[area]])
-    prediction = model.predict(area_val)[0]
+def predict(
+    request: Request,
+    POSTED_BY: float = Form(...),
+    UNDER_CONSTRUCTION: float = Form(...),
+    RERA: float = Form(...),
+    BHK_NO: float = Form(...),
+    BHK_OR_RK: float = Form(...),
+    SQUARE_FT: float = Form(...),
+    READY_TO_MOVE: float = Form(...),
+    RESALE: float = Form(...),
+    ADDRESS: float = Form(...),
+    LONGITUDE: float = Form(...),
+    LATITUDE: float = Form(...)
+):
+
+    data = np.array([[
+        POSTED_BY,
+        UNDER_CONSTRUCTION,
+        RERA,
+        BHK_NO,
+        BHK_OR_RK,
+        SQUARE_FT,
+        READY_TO_MOVE,
+        RESALE,
+        ADDRESS,
+        LONGITUDE,
+        LATITUDE
+    ]])
+
+    prediction = model.predict(data)[0]
 
     return templates.TemplateResponse(
         "index.html",
         {
             "request": request,
-            "area": area,
             "result": round(float(prediction), 2)
         }
     )

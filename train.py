@@ -20,7 +20,7 @@ df = pd.read_csv("C:\\Users\\chaud\\OneDrive\\Desktop\\fastapi1\\tra.csv")
 
 
 print(df.head(9))
-
+print(df.columns)
 
 # --------------------------------
 # 2) Split Features & Target
@@ -29,11 +29,7 @@ print(df.head(9))
 X = df.iloc[:, :-1]
 y = df.iloc[:, -1]
 
-# Encode target
-le = LabelEncoder()
-y = le.fit_transform(y)
-
-
+print(df.info())
 # Train Test Split
 X_train, X_test, y_train, y_test = train_test_split(
 X, y, test_size=0.2, random_state=42

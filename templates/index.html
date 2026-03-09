@@ -10,14 +10,44 @@
         <h1>🏠 House Price Prediction</h1>
 
         <form method="post" action="/predict">
-            <label>Enter Area (sq ft):</label>
-            <input type="number" name="area" placeholder="Enter area..." required>
+            <label>POSTED_BY:</label>
+            <input type="number" step="any" name="POSTED_BY" placeholder="Enter POSTED_BY" required>
+
+            <label>UNDER_CONSTRUCTION:</label>
+            <input type="number" step="any" name="UNDER_CONSTRUCTION" placeholder="Enter UNDER_CONSTRUCTION" required>
+
+            <label>RERA:</label>
+            <input type="number" step="any" name="RERA" placeholder="Enter RERA" required>
+
+            <label>BHK_NO:</label>
+            <input type="number" step="any" name="BHK_NO" placeholder="Enter BHK_NO" required>
+
+            <label>BHK_OR_RK:</label>
+            <input type="number" step="any" name="BHK_OR_RK" placeholder="Enter BHK_OR_RK" required>
+
+            <label>SQUARE_FT:</label>
+            <input type="number" step="any" name="SQUARE_FT" placeholder="Enter SQUARE_FT" required>
+
+            <label>READY_TO_MOVE:</label>
+            <input type="number" step="any" name="READY_TO_MOVE" placeholder="Enter READY_TO_MOVE" required>
+
+            <label>RESALE:</label>
+            <input type="number" step="any" name="RESALE" placeholder="Enter RESALE" required>
+
+            <label>ADDRESS:</label>
+            <input type="number" step="any" name="ADDRESS" placeholder="Enter ADDRESS" required>
+
+            <label>LONGITUDE:</label>
+            <input type="number" step="any" name="LONGITUDE" placeholder="Enter LONGITUDE" required>
+
+            <label>LATITUDE:</label>
+            <input type="number" step="any" name="LATITUDE" placeholder="Enter LATITUDE" required>
+
             <button type="submit">Predict</button>
         </form>
 
         {% if result %}
         <div class="result">
-            <p><b>Area:</b> {{ area }} sq.ft</p>
             <p><b>Predicted Price:</b> ₹ {{ result }} Lakhs</p>
         </div>
         {% endif %}
